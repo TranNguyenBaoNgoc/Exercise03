@@ -56,15 +56,21 @@ namespace ConsoleApplication1
         static void DrawTriangle(int n, char c)
         {
             HLine(n-1, ' ');
-            Console.WriteLine(c);
+            HLine(1,c);
+            Console.WriteLine();
             int a = 2, b = 1;
             for (int i = 0; i < n-2; i++)
             {
                 HLine(n-a, ' ');
                 HLine(1, c);
-                HLine(n +i, ' ');
+                HLine(b, ' ');
+                HLine(1, c);
+                Console.WriteLine();
+                a = a + 1;
+                b = b + 2;
             }
             HLine(2*n - 1, c);
+            Console.WriteLine();
         }
     }
 }
