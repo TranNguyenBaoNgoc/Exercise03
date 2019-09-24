@@ -10,7 +10,61 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello world");
+            HLine(10, 'a');
+            Console.WriteLine();
+            HLine(10, 'b');
+            Console.WriteLine();
+            DLine(10, 'b');
+            DrawTriangle(10, 'c');
+        }
+
+        static void HLine(int n, char c)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(c);
+            }
+        }
+
+        static void VLine(int n, char c)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine(c);
+            }
+        }
+        
+        static void DLine1(int n, char c)
+        {
+            String s = "";
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine(s+c);
+                s += " ";
+            }
+            
+        }
+        static void DLine(int n, char c)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                HLine(i, ' ');
+                Console.WriteLine(c);
+            }
+        }
+
+        static void DrawTriangle(int n, char c)
+        {
+            HLine(n-1, ' ');
+            Console.WriteLine(c);
+            int a = 2, b = 1;
+            for (int i = 0; i < n-2; i++)
+            {
+                HLine(n-a, ' ');
+                HLine(1, c);
+                HLine(n +i, ' ');
+            }
+            HLine(2*n - 1, c);
         }
     }
 }
