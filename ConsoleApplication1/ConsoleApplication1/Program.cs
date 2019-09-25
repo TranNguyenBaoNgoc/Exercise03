@@ -16,6 +16,8 @@ namespace ConsoleApplication1
             Console.WriteLine();
             DLine(10, 'b');
             DrawTriangle(10, 'c');
+            DrawN(10, '*');
+            DrawRevTriangle(10, '*');
         }
 
         static void HLine(int n, char c)
@@ -66,11 +68,55 @@ namespace ConsoleApplication1
                 HLine(b, ' ');
                 HLine(1, c);
                 Console.WriteLine();
-                a = a + 1;
-                b = b + 2;
+                a += 1;
+                b += 2;
             }
             HLine(2*n - 1, c);
             Console.WriteLine();
         }
+
+        static void DrawN(int n, char c)
+        {
+            int b = n-3;
+            HLine(1, c);
+            HLine(n - 2, ' ');
+            HLine(1, c);
+            Console.WriteLine();
+            for (int i = 0; i < n - 2; i++)
+            {
+                HLine(1, c);
+                HLine(i, ' ');
+                HLine(1, c);
+                HLine(b, ' ');
+                HLine(1, c);
+                Console.WriteLine();
+                b--;
+            }
+            HLine(1, c);
+            HLine(n - 2, ' ');
+            HLine(1, c);
+            Console.WriteLine();
+        }
+
+        static void DrawRevTriangle(int n, char c)
+        {
+            HLine(2 * n - 1, c);
+            Console.WriteLine();
+            int a = 1, b = 2*n-5;
+            for (int i = 0; i < n - 2; i++)
+            {
+                HLine(a, ' ');
+                HLine(1, c);
+                HLine(b, ' ');
+                HLine(1, c);
+                Console.WriteLine();
+                a += 1;
+                b -= 2;
+            }
+            HLine(n - 1, ' ');
+            HLine(1, c);
+            Console.WriteLine();
+        }
+
     }
 }
